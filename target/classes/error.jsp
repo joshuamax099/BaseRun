@@ -7,27 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
-<tr>
-<td>
-Lets add a Payee:
-</td>
-<td>
-<form action="addPayee" method="post">
-<input type="submit" value="Add Payee">
-</form>
-</td>
-</tr>
-<tr>
-<td>
-Let make a Transfer:
-</td>
-<td>
-<form action="makeTransfer" method="get">
-<input type="submit" value="Make Transfer">
-</form>
-</td>
-</tr>
-</table>
+Add Payee process failed...!!!
 </body>
 </html>

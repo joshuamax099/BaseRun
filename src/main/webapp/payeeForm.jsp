@@ -7,27 +7,42 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="addpayee1" method="post">
 <table>
 <tr>
 <td>
-Lets add a Payee:
+Payee Name:
 </td>
 <td>
-<form action="addPayee" method="post">
-<input type="submit" value="Add Payee">
-</form>
+<input type="text" name="ga_payee_name">
 </td>
 </tr>
 <tr>
 <td>
-Let make a Transfer:
+Payee Bank IFSC Code:
 </td>
 <td>
-<form action="makeTransfer" method="get">
-<input type="submit" value="Make Transfer">
-</form>
+<input type="text" name="ga_payee_acc_ifsc">
+</td>
+</tr>
+<tr>
+<td>
+Payee Bank Account No:
+</td>
+<td>
+<input type="text" name="ga_payee_accno">
+</td>
+</tr>
+<tr>
+<td>
+<input type="submit" value="Submit">
+</td>
+<td>
+<input type="reset" value="Reset">
 </td>
 </tr>
 </table>
+</form>
+
 </body>
 </html>

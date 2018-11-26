@@ -10,33 +10,34 @@
  		http://www.springframework.org/schema/tx	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 		<mvc:annotation-driven />
-		<context:component-scan base-package="com.javainterviewpoint" />
-
-
-		<bean id="employeeDAOImpl"
-			class="com.javainterviewpoint.EmployeeDAOImpl">
-			<property name="jdbcTemplate" ref="jdbcTemplate" />
-		</bean>
+		<context:component-scan base-package="com.coop.controller" />
 
 		<!-- Database Configurations -->
-		<bean id="dataSource"
+		<bean id="ds"
 			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="driverClassName"
-				value="com.mysql.jdbc.Driver" />
-			<property name="url"
-				value="jdbc:mysql://localhost:3306/mydb" />
-			<property name="username" value="root" />
-			<property name="password" value="root" />
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+			<property name="username" value="system" />
+			<property name="password" value="Newuser123" />
 		</bean>
 
-		<bean id="jdbcTemplate"
-			class="org.springframework.jdbc.core.JdbcTemplate">
-			<property name="dataSource" ref="dataSource" />
-		</bean>
+		
 
 		<bean
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			<property name="prefix" value="/WEB-INF/JSP/" />
+			<property name="prefix" value="/" />
 			<property name="suffix" value=".jsp" />
 		</bean>
+		
+		
+		<bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="ds" />
+		</bean>
+		<bean id="dao" class="com.coop.dao.JdbcDao">
+			<property name="jdbctemplate" ref="JdbcTemplate" />
+		</bean>
+
+		
+		
+		
 	</beans>
