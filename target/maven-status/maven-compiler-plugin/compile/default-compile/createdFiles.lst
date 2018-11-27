@@ -1,0 +1,5 @@
+com\coop\controller\NewController.class
+com\coop\model\MakeTransfer.class
+com\coop\dao\JdbcDao$1.class
+com\coop\dao\JdbcDao.class
+com\coop\model\AddPayee.class

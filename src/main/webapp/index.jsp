@@ -10,17 +10,17 @@
 <table>
 <tr>
 <td>
-Lets add a Payee:
+Payee Details:
 </td>
 <td>
-<form action="addPayee" method="post">
-<input type="submit" value="Add Payee">
+<form action="payeeDash" method="post">
+<input type="submit" value="Payee Details">
 </form>
 </td>
 </tr>
 <tr>
 <td>
-Let make a Transfer:
+Money Transfer:
 </td>
 <td>
 <form action="makeTransfer" method="get">
