@@ -63,6 +63,13 @@ public class JdbcDao {
 		String name = (String) getJdbctemplate().queryForObject(sql, new Object[] { ano }, String.class);
 		return name;
 	}
+	public String checkMax() {
+		//System.out.println("JDBCHello");
+		String sql = "select max(ga_transaction_no) from gr2_transaction_log";
+		String name = (String) getJdbctemplate().queryForObject(sql, String.class);
+		System.out.println(name);
+		return name;
+	}
 	public int updatenewbalance(String accno, int newbal) {
 		System.out.println("JDBCHello");
 		String newbali = String.valueOf(newbal);

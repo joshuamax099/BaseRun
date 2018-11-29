@@ -114,7 +114,13 @@ public class NewController {
 				|| ap.getGa_transfer_mode().equals("rtgs") && transfer_amount > 200000 && transfer_amount < 1000000
 				|| ap.getGa_transfer_mode().equals("imps") && transfer_amount > 1 && transfer_amount < 200000) {
 			ap.setGa_sender_accno("100000002");
-			ap.setGa_transaction_no("1");
+			System.out.println("YessYamaha");
+			String max_transaction_no = dao.checkMax();
+			System.out.println(max_transaction_no);
+			int tr_no = Integer.parseInt(max_transaction_no) + 1 ;
+			System.out.println(tr_no);
+			String str_tr_no = String.valueOf(tr_no);
+			ap.setGa_transaction_no(str_tr_no);
 			FlagStatus ap1 = new FlagStatus();
 			ap1.setGa_transaction_no(ap.getGa_transaction_no());
 			ap1.setGa_sender_accno(ap.getGa_sender_accno());
