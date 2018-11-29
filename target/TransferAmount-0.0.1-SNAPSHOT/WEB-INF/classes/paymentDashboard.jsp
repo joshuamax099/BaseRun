@@ -14,27 +14,7 @@ NEFT Payment:
 </td>
 <td>
 <form action="neftTransfer" method="post">
-<input type="submit" value="NEFT Transfer">
-</form>
-</td>
-</tr>
-<tr>
-<td>
-RTGS Payment:
-</td>
-<td>
-<form action="rtgsTransfer" method="post">
-<input type="submit" value="RTGS Transfer">
-</form>
-</td>
-</tr>
-<tr>
-<td>
-IMPS Payment:
-</td>
-<td>
-<form action="impsTransfer" method="post">
-<input type="submit" value="IMPS Transfer">
+<input type="submit" value="Money Transfer">
 </form>
 </td>
 </tr>

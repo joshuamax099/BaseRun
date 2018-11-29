@@ -5,6 +5,7 @@ public class TransferDetails {
 	private String ga_sender_accno;
 	private String ga_receiver_accno;
 	private String ga_transfer_amount;
+	private String ga_transfer_mode;
 	private String ga_payee_remarks;
 	public String getGa_transaction_no() {
 		return ga_transaction_no;
@@ -29,6 +30,13 @@ public class TransferDetails {
 	}
 	public void setGa_transfer_amount(String ga_transfer_amount) {
 		this.ga_transfer_amount = ga_transfer_amount;
+	}
+	
+	public String getGa_transfer_mode() {
+		return ga_transfer_mode;
+	}
+	public void setGa_transfer_mode(String ga_transfer_mode) {
+		this.ga_transfer_mode = ga_transfer_mode;
 	}
 	public String getGa_payee_remarks() {
 		return ga_payee_remarks;
