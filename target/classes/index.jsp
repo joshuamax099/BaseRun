@@ -23,7 +23,7 @@ Payee Details:
 Money Transfer:
 </td>
 <td>
-<form action="makeTransfer" method="get">
+<form action="makeTransfer" method="post">
 <input type="submit" value="Make Transfer">
 </form>
 </td>

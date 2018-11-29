@@ -1,5 +1,9 @@
+com\coop\dao\JdbcDao$UserMapper.class
 com\coop\controller\NewController.class
 com\coop\model\MakeTransfer.class
+com\coop\model\Registration.class
+com\coop\model\TransferDetails.class
 com\coop\dao\JdbcDao$1.class
 com\coop\dao\JdbcDao.class
+com\coop\model\FlagStatus.class
 com\coop\model\AddPayee.class
