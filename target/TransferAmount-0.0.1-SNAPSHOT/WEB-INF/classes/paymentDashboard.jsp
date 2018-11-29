@@ -10,7 +10,7 @@
 <table>
 <tr>
 <td>
-NEFT Payment:
+Secured Payment:
 </td>
 <td>
 <form action="neftTransfer" method="post">

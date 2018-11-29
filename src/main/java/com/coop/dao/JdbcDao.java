@@ -145,5 +145,12 @@ public class JdbcDao {
 
 		return name;
 	}
+	public int deleteflag(int id) {
+		String sql = "delete from gr2_flag where ga_transaction_no=" + id + "";
+		System.out.println(id);
+		System.out.println("query executed" + id + " " + sql);
+
+		return jdbctemplate.update(sql);
+	}
 
 }

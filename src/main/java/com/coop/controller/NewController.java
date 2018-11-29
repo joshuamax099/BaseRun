@@ -21,9 +21,10 @@ public class NewController {
 	@Autowired
 	JdbcDao dao;
 
-	@RequestMapping(value = "/payeeDash", method = RequestMethod.POST)
+	//performs payee operations like add, view and delete payee and to update
+	@RequestMapping(value = "/payeeDash", method = RequestMethod.POST) 
 	public ModelAndView showpayeedash() {
-		String accno = "100000002";// get through session
+		String accno = "100000004";// Retrieved through session
 		ModelAndView mv = null;
 		FlagStatus reg = dao.validateBalance(accno);
 		// modified code
@@ -36,6 +37,8 @@ public class NewController {
 			int newbal = Integer.parseInt(getbalance) + Integer.parseInt(reg.getGa_transfer_amount());
 			System.out.println(newbal);
 			dao.updatenewbalance(accno, newbal);
+			int transaction_no = Integer.parseInt(reg.getGa_transaction_no());
+			dao.deleteflag(transaction_no);
 			mv = new ModelAndView("payeeDashboard");
 
 			return mv;
@@ -46,16 +49,19 @@ public class NewController {
 
 	}
 
+	//Links to payeeForm.jsp
 	@RequestMapping(value = "/addPayee", method = RequestMethod.POST)
 	public ModelAndView showpayeeform() {
 		return new ModelAndView("payeeForm");
 	}
 
+	//Links to paymentDashboard.jsp
 	@RequestMapping(value = "/makeTransfer", method = RequestMethod.POST)
 	public ModelAndView makeTransfer() {
 		return new ModelAndView("paymentDashboard");
 	}
 
+	//Links to paymentDashboard.jsp
 	@RequestMapping(value = "/neftTransfer", method = RequestMethod.POST)
 	public ModelAndView neftTransfer() {
 		List<AddPayee> list = dao.getallpayees();
@@ -93,7 +99,7 @@ public class NewController {
 
 	@RequestMapping(value = "/addpayee1", method = RequestMethod.POST)
 	public ModelAndView addpayee(@ModelAttribute() AddPayee ap) {
-		String accno = "100000002";
+		String accno = "100000004";
 		ap.setGa_accno(accno);
 		System.out.println("Hello");
 		int i = dao.addpayee(ap);
@@ -113,7 +119,7 @@ public class NewController {
 		if (ap.getGa_transfer_mode().equals("neft") && transfer_amount > 1
 				|| ap.getGa_transfer_mode().equals("rtgs") && transfer_amount > 200000 && transfer_amount < 1000000
 				|| ap.getGa_transfer_mode().equals("imps") && transfer_amount > 1 && transfer_amount < 200000) {
-			ap.setGa_sender_accno("100000002");
+			ap.setGa_sender_accno("100000004");
 			System.out.println("YessYamaha");
 			String max_transaction_no = dao.checkMax();
 			System.out.println(max_transaction_no);
