@@ -112,8 +112,8 @@ public class JdbcDao {
 		}
 	}
 
-	public List<AddPayee> getallpayees() {
-		return jdbctemplate.query("select * from gr2_payee_details", new RowMapper<AddPayee>() {
+	public List<AddPayee> getallpayees(String accno) {
+		return jdbctemplate.query("select * from gr2_payee_details where ga_accno='"+accno+"'", new RowMapper<AddPayee>() {
 			public AddPayee mapRow(ResultSet rs, int row) throws SQLException {
 				AddPayee e = new AddPayee();
 				e.setGa_accno(rs.getString(1));

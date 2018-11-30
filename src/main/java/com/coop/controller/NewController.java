@@ -24,7 +24,7 @@ public class NewController {
 	//performs payee operations like add, view and delete payee and to update
 	@RequestMapping(value = "/payeeDash", method = RequestMethod.POST) 
 	public ModelAndView showpayeedash() {
-		String accno = "100000004";// Retrieved through session
+		String accno = "100000002";// Retrieved through session
 		ModelAndView mv = null;
 		FlagStatus reg = dao.validateBalance(accno);
 		// modified code
@@ -64,13 +64,15 @@ public class NewController {
 	//Links to paymentDashboard.jsp
 	@RequestMapping(value = "/neftTransfer", method = RequestMethod.POST)
 	public ModelAndView neftTransfer() {
-		List<AddPayee> list = dao.getallpayees();
+		String accno = "100000002";
+		List<AddPayee> list = dao.getallpayees(accno);
 		return new ModelAndView("transferForm","list",list);
 	}
 
 	@RequestMapping(value = "/viewPayee", method = RequestMethod.POST)
 	public ModelAndView viewemp() {
-		List<AddPayee> list = dao.getallpayees();
+		String accno = "100000002";
+		List<AddPayee> list = dao.getallpayees(accno);
 		return new ModelAndView("viewPayeeDash", "list", list);
 	}
 
@@ -99,7 +101,7 @@ public class NewController {
 
 	@RequestMapping(value = "/addpayee1", method = RequestMethod.POST)
 	public ModelAndView addpayee(@ModelAttribute() AddPayee ap) {
-		String accno = "100000004";
+		String accno = "100000002";
 		ap.setGa_accno(accno);
 		System.out.println("Hello");
 		int i = dao.addpayee(ap);
@@ -119,7 +121,7 @@ public class NewController {
 		if (ap.getGa_transfer_mode().equals("neft") && transfer_amount > 1
 				|| ap.getGa_transfer_mode().equals("rtgs") && transfer_amount > 200000 && transfer_amount < 1000000
 				|| ap.getGa_transfer_mode().equals("imps") && transfer_amount > 1 && transfer_amount < 200000) {
-			ap.setGa_sender_accno("100000004");
+			ap.setGa_sender_accno("100000002");
 			System.out.println("YessYamaha");
 			String max_transaction_no = dao.checkMax();
 			System.out.println(max_transaction_no);
@@ -146,7 +148,7 @@ public class NewController {
 					System.out.println(newbal1);
 					int k = dao.updatebal(newbal1, ano);
 					if (k == 1) {
-
+						
 						System.out.println("HelloPrbht");
 						return new ModelAndView("index");
 					} else {
